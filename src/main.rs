@@ -1,18 +1,20 @@
-use petgraph::graph::Graph;
-use std::collections::HashMap;
+mod db;
+mod gui;
 
-fn main() {
-    // Indexação simples com HashMap
-    let mut catalog: HashMap<String, String> = HashMap::new();
-    catalog.insert("Notebook".to_string(), "Eletrônicos".to_string());
-    catalog.insert("Camisa".to_string(), "Vestuário".to_string());
+#[tokio::main]
+async fn main() {
+    let pool = db::get_db_pool().await;
 
-    // Grafo para recomendações
-    let mut g: Graph<&str, &str> = Graph::new();
-    let n1 = g.add_node("Notebook");
-    let n2 = g.add_node("Mouse");
-    g.add_edge(n1, n2, "frequentemente comprados juntos");
+    let native_options = eframe::NativeOptions {
+        viewport: egui::ViewportBuilder::default()
+            .with_inner_size([600.0, 400.0]),
+        ..Default::default()
+    };
+    let _ = eframe::run_native(
+    "MegaStore Search",
+    native_options,
+    Box::new(|_cc| Box::new(gui::MyApp::new(pool))),
+);
 
-    println!("Busca: {:?}", catalog.get("Notebook"));
-    println!("Recomendações: Notebook -> Mouse");
-}
+
+
