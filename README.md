@@ -1,6 +1,6 @@
-====================================================================
+=============================
   Sistema de Busca Otimizado para Catálogo de Produtos - MegaStore
-====================================================================
+=============================
 
  DESCRIÇÃO
 ------------
@@ -8,7 +8,7 @@ Sistema de busca otimizado e motor de recomendação para o catálogo da MegaSto
 Desenvolvido em **Rust**, com integração ao **MySQL** via **SQLx**, e recomendações
 inteligentes usando **Petgraph** (grafos).
 
-====================================================================
+==========================
  TECNOLOGIAS
 --------------
 - Rust (linguagem principal)
@@ -18,7 +18,7 @@ inteligentes usando **Petgraph** (grafos).
 - Eframe/Egui (interface gráfica)
 - Cargo test (testes unitários e integração)
 
-====================================================================
+=============================
  BANCO DE DADOS
 -----------------
 Estrutura principal da tabela de produtos:
@@ -42,7 +42,7 @@ String de conexão utilizada:
 ```
     mysql://megastore:1234@127.0.0.1/megastore
 ```
-====================================================================
+=============================
  EXECUÇÃO
 -----------
 1. Clone o repositório:
@@ -57,7 +57,7 @@ String de conexão utilizada:
        cargo run
 ```
 
-====================================================================
+========================
  TESTES
 ---------
 Para rodar os testes automatizados:
@@ -69,7 +69,7 @@ Testes disponíveis:
 - Recomendações de produtos (tests/recommendation_tests.rs)
 - Inserção de novos produtos (tests/insert_tests.rs)
 
-====================================================================
+=========================
  ARQUITETURA
 ---------------
 - src/db.rs ........ Funções de acesso ao banco
@@ -128,28 +128,28 @@ LIB (lib.rs) → organiza e reexporta módulos.
 Banco MySQL → armazena os produtos.
 
 Tests/ → validam busca, inserção e recomendações.
-====================================================================
+=======================
  ALGORITMOS E ESTRUTURAS
 --------------------------
 - Hash Tables → indexação rápida por nome, marca e categoria
 - Grafos (Petgraph) → relações entre produtos e categorias
 - SQL otimizado com índices → consultas eficientes
 
-====================================================================
+==============
  DESEMPENHO
 -------------
 - Consultas otimizadas com SQLx
 - Recomendações rápidas via grafos
 - Escalável para milhões de produtos
 
-====================================================================
+=================
  CONTRIBUIÇÕES
 ----------------
 Faça um fork, crie uma branch e envie um pull request.
 
-====================================================================
+=================
  LICENÇA
 ----------
 MIT License
 
-====================================================================
+==============
