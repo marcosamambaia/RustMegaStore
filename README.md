@@ -78,7 +78,56 @@ Testes disponíveis:
 - src/main.rs ...... Ponto de entrada
 - src/lib.rs ....... Reexporta módulos
 - tests/ ........... Testes unitários e integração
+```
+ ====================================================================
+                 DIAGRAMA ASCII DA ARQUITETURA
+====================================================================
 
+                 ┌───────────────────────────┐
+                 │         GUI (gui.rs)      │
+                 │ Interface gráfica (Egui)  │
+                 │ Busca / Cadastro / Recom. │
+                 └─────────────┬─────────────┘
+                               │
+                               ▼
+                 ┌───────────────────────────┐
+                 │        MAIN (main.rs)     │
+                 │  Ponto de entrada do app  │
+                 │  Orquestra os módulos     │
+                 └─────────────┬─────────────┘
+                               │
+        ┌──────────────────────┼──────────────────────┐
+        │                      │                      │
+        ▼                      ▼                      ▼
+┌─────────────────┐    ┌─────────────────┐     ┌─────────────────┐
+│   DB (db.rs)    │    │ Recommendation  │     │   LIB (lib.rs)  │
+│ Funções SQLx    │    │(recommendation.rs)│   │ Reexporta mod.  │
+│ Busca / Inserção│    │ Motor de grafos │     │ Organização     │
+└───────┬─────────┘    └─────────┬───────┘     └─────────┬───────┘
+        │                        │                      │
+        ▼                        ▼                      ▼
+┌──────────────────┐    ┌─────────────────┐     ┌─────────────────┐
+│   Banco MySQL    │    │   Estruturas    │     │   Testes (tests)│
+│  Tabela products │    │   Hash Tables   │     │ Busca / Inserção│
+│Usuário: megastore│    │Grafos (Petgraph)│     │ Recomendações   │
+└──────────────────┘    └─────────────────┘     └─────────────────┘
+
+====================================================================
+```
+## Explicação rápida
+GUI (gui.rs) → interface gráfica onde o usuário interage.
+
+MAIN (main.rs) → ponto de entrada, conecta tudo.
+
+DB (db.rs) → acesso ao banco MySQL (busca, inserção).
+
+Recommendation (recommendation.rs) → motor de recomendação com grafos.
+
+LIB (lib.rs) → organiza e reexporta módulos.
+
+Banco MySQL → armazena os produtos.
+
+Tests/ → validam busca, inserção e recomendações.
 ====================================================================
  ALGORITMOS E ESTRUTURAS
 --------------------------
