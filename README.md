@@ -1,5 +1,5 @@
 *****************************
-  Sistema de Busca Otimizado para Catálogo de Produtos - MegaStore
+  ## Sistema de Busca Otimizado para Catálogo de Produtos - MegaStore
 *****************************
  DESCRIÇÃO
 ------------
@@ -131,28 +131,30 @@ LIB (lib.rs) → organiza e reexporta módulos.
 Banco MySQL → armazena os produtos.
 
 Tests/ → validam busca, inserção e recomendações.
-=======================
+*****************************
  ALGORITMOS E ESTRUTURAS
---------------------------
+ ****************************
 - Hash Tables → indexação rápida por nome, marca e categoria
 - Grafos (Petgraph) → relações entre produtos e categorias
 - SQL otimizado com índices → consultas eficientes
 
-==============
+*****************************
  DESEMPENHO
+*****************************
 -------------
 - Consultas otimizadas com SQLx
 - Recomendações rápidas via grafos
 - Escalável para milhões de produtos
 
-=================
+*****************************
  CONTRIBUIÇÕES
+***************************** 
 ----------------
 Faça um fork, crie uma branch e envie um pull request.
 
-=================
+*****************************
  LICENÇA
-----------
+*****************************
 MIT License
 
-==============
+*****************************
