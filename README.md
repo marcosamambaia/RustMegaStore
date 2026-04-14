@@ -46,13 +46,13 @@ String de conexão utilizada:
  EXECUÇÃO
 -----------
 1. Clone o repositório:
-2. ```
+```
        git clone https://github.com/seuusuario/RustMegaStore.git
        cd RustMegaStore
 ```
-3. Configure o banco MySQL conforme instruções acima.
+2. Configure o banco MySQL conforme instruções acima.
 
-4. Compile e execute:
+3. Compile e execute:
 ```
        cargo run
 ```
