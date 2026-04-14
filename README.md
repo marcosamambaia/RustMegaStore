@@ -1,83 +1,106 @@
-===============================================================
-Sistema de Busca Otimizado para Catálogo de Produtos - MegaStore
-===============================================================
+====================================================================
+  Sistema de Busca Otimizado para Catálogo de Produtos - MegaStore
+====================================================================
 
+ DESCRIÇÃO
+------------
+Sistema de busca otimizado e motor de recomendação para o catálogo da MegaStore.
+Desenvolvido em **Rust**, com integração ao **MySQL** via **SQLx**, e recomendações
+inteligentes usando **Petgraph** (grafos).
 
+====================================================================
+ TECNOLOGIAS
+--------------
+- Rust (linguagem principal)
+- SQLx (ORM assíncrono para MySQL)
+- Petgraph (estrutura de grafos)
+- Tokio (runtime assíncrono)
+- Eframe/Egui (interface gráfica)
+- Cargo test (testes unitários e integração)
 
-
-##  Descrição
-Este projeto implementa um **sistema de busca otimizado** e um **motor de recomendação de produtos** para o catálogo da MegaStore, utilizando **Rust**, **SQLx** e **Petgraph**.  
-O objetivo é oferecer buscas rápidas, precisas e recomendações inteligentes em um catálogo com milhões de itens.
-
----
-
-##  Tecnologias utilizadas
-- **Rust** (linguagem principal)
-- **SQLx** (integração com MySQL)
-- **Petgraph** (estrutura de grafos para recomendações)
-- **Eframe/Egui** (interface gráfica)
-- **Tokio** (runtime assíncrono)
-- **Cargo test** (testes unitários e de integração)
-
----
-
-##  Como executar
+====================================================================
+ BANCO DE DADOS
+-----------------
+Estrutura principal da tabela de produtos:
+```
+    CREATE TABLE products (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        brand VARCHAR(255) NOT NULL,
+        category VARCHAR(255) NOT NULL,
+        product_type VARCHAR(255) NOT NULL,
+        price DECIMAL(10,2) NOT NULL
+    );
+```
+Usuário dedicado para o sistema:
+```
+    CREATE USER 'megastore'@'%' IDENTIFIED BY '1234';
+    GRANT ALL PRIVILEGES ON megastore.* TO 'megastore'@'%';
+    FLUSH PRIVILEGES;
+```
+String de conexão utilizada:
+```
+    mysql://megastore:1234@127.0.0.1/megastore
+```
+====================================================================
+ EXECUÇÃO
+-----------
 1. Clone o repositório:
-   ```bash
-   git clone https://github.com/marcosamambaia/RustMegaStore
-   cd RustMegaStore
-
-
-2. Configure o banco MySQL:
-```CREATE DATABASE megastore;
-CREATE USER 'megastore'@'%' IDENTIFIED BY '1234';
-GRANT ALL PRIVILEGES ON megastore.* TO 'megastore'@'%';
-FLUSH PRIVILEGES;
+2. ```
+       git clone https://github.com/seuusuario/RustMegaStore.git
+       cd RustMegaStore
 ```
-3. Configure e execute:
-```cargo run
+3. Configure o banco MySQL conforme instruções acima.
+
+4. Compile e execute:
+```
+       cargo run
 ```
 
-## Como rodar os testes
+====================================================================
+ TESTES
+---------
+Para rodar os testes automatizados:
+```
+       cargo test
+```
+Testes disponíveis:
+- Busca por nome e categoria (tests/search_tests.rs)
+- Recomendações de produtos (tests/recommendation_tests.rs)
+- Inserção de novos produtos (tests/insert_tests.rs)
 
-cargo test
+====================================================================
+ ARQUITETURA
+---------------
+- src/db.rs ........ Funções de acesso ao banco
+- src/recommendation.rs .. Motor de recomendação (grafos)
+- src/gui.rs ....... Interface gráfica
+- src/main.rs ...... Ponto de entrada
+- src/lib.rs ....... Reexporta módulos
+- tests/ ........... Testes unitários e integração
 
-## Os testes cobrem:
+====================================================================
+ ALGORITMOS E ESTRUTURAS
+--------------------------
+- Hash Tables → indexação rápida por nome, marca e categoria
+- Grafos (Petgraph) → relações entre produtos e categorias
+- SQL otimizado com índices → consultas eficientes
 
-Busca por nome e categoria (search_tests.rs)
+====================================================================
+ DESEMPENHO
+-------------
+- Consultas otimizadas com SQLx
+- Recomendações rápidas via grafos
+- Escalável para milhões de produtos
 
-Recomendações de produtos (recommendation_tests.rs)
-
-Inserção de novos produtos (insert_tests.rs)
-
-## Arquitetura do sistema
-db.rs → Funções de acesso ao banco (busca, inserção).
-
-recommendation.rs → Motor de recomendação baseado em grafos.
-
-gui.rs → Interface gráfica com busca, cadastro e recomendações.
-
-main.rs → Ponto de entrada da aplicação.
-
-tests/ → Testes unitários e de integração.
-
-## Algoritmos e Estruturas de Dados
-Tabela Hash → Indexação rápida de produtos por nome, marca e categoria.
-
-Grafos (Petgraph) → Representação das relações entre produtos (categoria, marca).
-
-Busca linear + filtros → Para consultas simples no catálogo.
-
-## Desempenho e Escalabilidade
-Consultas otimizadas com SQLx e índices no banco.
-
-Estruturas de grafos permitem recomendações rápidas mesmo com grandes volumes.
-
-Escalável para milhões de produtos, desde que o banco esteja indexado corretamente.
-
-## Contribuições
-Contribuições são bem-vindas!
+====================================================================
+ CONTRIBUIÇÕES
+----------------
 Faça um fork, crie uma branch e envie um pull request.
 
-## Licença
-Este projeto está licenciado sob a MIT License.
+====================================================================
+ LICENÇA
+----------
+MIT License
+
+====================================================================
