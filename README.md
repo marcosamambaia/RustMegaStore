@@ -153,8 +153,15 @@ Tests/ → validam busca, inserção e recomendações.
 Faça um fork, crie uma branch e envie um pull request.
 
 *****************************
- LICENÇA
+
+
+## LICENÇA ACADÊMICA
+--------------------
+Este projeto foi desenvolvido para fins acadêmicos, como parte de 
+atividades de ensino e pesquisa. O uso é permitido para estudo, 
+avaliação e aprendizado. Qualquer utilização comercial ou distribuição 
+fora do contexto acadêmico requer autorização prévia do autor.
 *****************************
-MIT License
+
 
 *****************************
