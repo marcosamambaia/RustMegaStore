@@ -1,9 +1,9 @@
 ===============================================================
-   Sistema de Busca Otimizado para Catálogo de Produtos - MegaStore
+Sistema de Busca Otimizado para Catálogo de Produtos - MegaStore
 ===============================================================
 
 
-===============================================================
+
 
 ##  Descrição
 Este projeto implementa um **sistema de busca otimizado** e um **motor de recomendação de produtos** para o catálogo da MegaStore, utilizando **Rust**, **SQLx** e **Petgraph**.  
@@ -38,11 +38,11 @@ FLUSH PRIVILEGES;
 ```cargo run
 ```
 
-Como rodar os testes
+## Como rodar os testes
 
 cargo test
 
-Os testes cobrem:
+## Os testes cobrem:
 
 Busca por nome e categoria (search_tests.rs)
 
@@ -50,7 +50,7 @@ Recomendações de produtos (recommendation_tests.rs)
 
 Inserção de novos produtos (insert_tests.rs)
 
- Arquitetura do sistema
+## Arquitetura do sistema
 db.rs → Funções de acesso ao banco (busca, inserção).
 
 recommendation.rs → Motor de recomendação baseado em grafos.
@@ -61,23 +61,23 @@ main.rs → Ponto de entrada da aplicação.
 
 tests/ → Testes unitários e de integração.
 
- Algoritmos e Estruturas de Dados
+## Algoritmos e Estruturas de Dados
 Tabela Hash → Indexação rápida de produtos por nome, marca e categoria.
 
 Grafos (Petgraph) → Representação das relações entre produtos (categoria, marca).
 
 Busca linear + filtros → Para consultas simples no catálogo.
 
- Desempenho e Escalabilidade
+## Desempenho e Escalabilidade
 Consultas otimizadas com SQLx e índices no banco.
 
 Estruturas de grafos permitem recomendações rápidas mesmo com grandes volumes.
 
 Escalável para milhões de produtos, desde que o banco esteja indexado corretamente.
 
- Contribuições
+## Contribuições
 Contribuições são bem-vindas!
 Faça um fork, crie uma branch e envie um pull request.
 
- Licença
+## Licença
 Este projeto está licenciado sob a MIT License.
