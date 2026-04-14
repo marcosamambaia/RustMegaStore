@@ -1,16 +1,16 @@
-=============================
+*****************************
   Sistema de Busca Otimizado para Catálogo de Produtos - MegaStore
-=============================
-
+*****************************
  DESCRIÇÃO
 ------------
 Sistema de busca otimizado e motor de recomendação para o catálogo da MegaStore.
 Desenvolvido em **Rust**, com integração ao **MySQL** via **SQLx**, e recomendações
 inteligentes usando **Petgraph** (grafos).
 
-==========================
+*****************************
  TECNOLOGIAS
---------------
+*****************************
+ --------------
 - Rust (linguagem principal)
 - SQLx (ORM assíncrono para MySQL)
 - Petgraph (estrutura de grafos)
@@ -18,8 +18,9 @@ inteligentes usando **Petgraph** (grafos).
 - Eframe/Egui (interface gráfica)
 - Cargo test (testes unitários e integração)
 
-=============================
+*****************************
  BANCO DE DADOS
+*****************************
 -----------------
 Estrutura principal da tabela de produtos:
 ```
@@ -42,8 +43,9 @@ String de conexão utilizada:
 ```
     mysql://megastore:1234@127.0.0.1/megastore
 ```
-=============================
+*****************************
  EXECUÇÃO
+*****************************
 -----------
 1. Clone o repositório:
 ```
@@ -57,8 +59,9 @@ String de conexão utilizada:
        cargo run
 ```
 
-========================
+*****************************
  TESTES
+*****************************
 ---------
 Para rodar os testes automatizados:
 ```
@@ -69,7 +72,7 @@ Testes disponíveis:
 - Recomendações de produtos (tests/recommendation_tests.rs)
 - Inserção de novos produtos (tests/insert_tests.rs)
 
-=========================
+*****************************
  ARQUITETURA
 ---------------
 - src/db.rs ........ Funções de acesso ao banco
