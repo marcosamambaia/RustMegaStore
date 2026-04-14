@@ -4,8 +4,21 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-sqlx = { version = "0.7", features = ["mysql", "runtime-tokio-native-tls"] }
-tokio = { version = "1", features = ["full"] }
+# GUI
 eframe = "0.27"
 egui = "0.27"
+
+# Banco de dados MySQL
+sqlx = { version = "0.7", features = ["mysql", "runtime-tokio"] }
+tokio = { version = "1", features = ["full"] }
+
+# Grafos para recomendação
+petgraph = "0.6"
+
+# Utilitários
 futures = "0.3"
+
+
+[lib]
+name = "megastore_search"
+path = "src/lib.rs"

@@ -1,5 +1,6 @@
 mod db;
 mod gui;
+mod recommendation;
 
 #[tokio::main]
 async fn main() {
@@ -10,11 +11,10 @@ async fn main() {
             .with_inner_size([600.0, 400.0]),
         ..Default::default()
     };
+
     let _ = eframe::run_native(
-    "MegaStore Search",
-    native_options,
-    Box::new(|_cc| Box::new(gui::MyApp::new(pool))),
-);
-
-
-
+        "MegaStore Search",
+        native_options,
+        Box::new(|_cc| Box::new(gui::MyApp::new(pool))),
+    );
+}
